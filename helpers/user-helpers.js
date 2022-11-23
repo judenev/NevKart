@@ -608,7 +608,7 @@ module.exports = {
             let walletDeduct = (isWallet.TotalAmount - total)
             console.log({ walletDeduct });
             let wallet = {
-                Amount: walletDeduct,
+                Amount: total,
                 date: new Date(),
                 cause: "Wallet payment"
 
