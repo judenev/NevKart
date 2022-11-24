@@ -900,6 +900,7 @@ function getOrderList(req, res, userId, orderId = null) {
       // console.log("PRODUCT!")
       // console.dir(product)
       console.log({ delivered });
+      console.log("orderdetails dhe",orderDetails);
 
       let userstatus = (req.session.loggedIn)
       res.render('user/Orderstatus', { j, delivered, orderDetails, product, userstatus, addressdatas, Orderedlist: true, d: s, cartcounts, pro, name, orderId: oid })

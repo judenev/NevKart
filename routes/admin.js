@@ -522,7 +522,7 @@ function getOrderLists(req, res,p, orderId = null) {
     console.log("PRODUCT!")
     console.dir(product)
     console.log("kunnapi",orderDetails.length);
-    let g = (orderDetails.length / 10)
+    let g = (orderDetails.length / 10)+1
     let pagNo = []
     for (let index = 1; index <= g; index++) {
       pagNo.push(index);

@@ -62,11 +62,13 @@ module.exports = {
 
     },
     Orderstatusupdate: (orderid, status,) => {
-        console.log("kooooi", status);
+        console.log("kooooi", orderid);
 
         return new Promise((resolve, reject) => {
             db.get().collection(collection.order_collection).updateOne({ _id: ObjectId(orderid) }, { $set: { 'Orderdetails.DeliveryStatus': status.orderStatus } }).then(async (data) => {
                 if (status.orderStatus == "Order Canceled") {
+                    let statuse="Order cancelled by user"
+                    db.get().collection(collection.order_collection).updateOne({ _id: ObjectId(orderid) }, { $set: { 'Orderdetails.product.$.status': statuse } })
                     let orderDet = await db.get().collection(collection.order_collection).findOne({ _id: ObjectId(orderid) })
 
                     let walletrefund = parseInt(orderDet.Orderdetails.total)
@@ -111,6 +113,8 @@ module.exports = {
     Orderdelete: (orderId) => {
         return new Promise((resolve, reject) => {
             db.get().collection(collection.order_collection).deleteOne({ _id: ObjectId(orderId) }).then(() => {
+            
+
                 resolve(true)
             })
         })
