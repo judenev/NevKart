@@ -131,7 +131,7 @@
                 <tr class="cell-1">
 
 
-                  <td><a style="text-decoration: none;" href="../Orderlist/{{this._id}}"> <button
+                  <td><a style="text-decoration: none;" href="../Orderlist/{{this._id}}"> <button 
                         class="btn btn-info">View More</button></a></td>
 
 
@@ -168,7 +168,7 @@
     </div>
   </div>
   {{!-- ==================================Order new starts here ============================================= --}}
-  <section class="h-100 gradient-custom">
+  <section class="h-100 gradient-custom scrol" >
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-10 col-xl-8">
@@ -180,7 +180,7 @@
             <div class="card-body p-4">
               <div class="d-flex justify-content-between align-items-center mb-4">
                 <p class="lead fw-normal mb-0" style="color: #a8729a;">Order Details</p>
-                <p class="small text-muted mb-0">Receipt Voucher : 1KAU9-84UIL</p>
+               
               </div>
         {{#if delivered}}
              <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Invoice</button>
@@ -622,6 +622,39 @@
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+var scrolled=0;
+
+$(document).ready(function(){
+
+
+$("#downClick").on("click" ,function(){
+    scrolled=scrolled+300;
+
+    $(".scrol").animate({
+        scrollTop:  scrolled
+    });
+
+});
+
+
+$("#upClick").on("click" ,function(){
+    scrolled=scrolled-300;
+
+    $(".scrol").animate({
+        scrollBottom:  scrolled
+    });
+
+});
+
+
+$(".clearValue").on("click" ,function(){
+    scrolled=0;
+});
+
+
+});
+  </script>
 <script>
         async function generatePDF() {
             document.getElementById("downloadButton").innerHTML = "Invoice is here";
